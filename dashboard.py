@@ -6,7 +6,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-os.environ["SECRET_KEY"] = "Bla"
 
 def get_user_datastore() -> dict:
     data = pd.read_csv("relational_database/user_metadata.csv")
