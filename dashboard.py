@@ -51,7 +51,7 @@ def logout():
 
 
 @app.route("/get_portfolio_by_id/<portfolio_id>", methods=["GET"])
-async def global_method(portfolio_id: int):
+def get_portfolio_by_id(portfolio_id: int):
     portfolio_id = int(portfolio_id)
     user_portfolio = get_portfolio_stocks(portfolio_id)
     result = calculate_portfolio(user_portfolio)
