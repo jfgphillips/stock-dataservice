@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, session, flash
 import pandas as pd
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 
 def get_user_datastore() -> dict:
@@ -69,5 +70,4 @@ def get_portfolio_list() -> str:
 
 
 if __name__ == "__main__":
-    app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
