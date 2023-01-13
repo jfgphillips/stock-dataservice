@@ -62,7 +62,7 @@ def get_portfolio_list() -> str:
     portfolios = get_user_portfolios(session.get("user_id"))
     http_functions = ""
     for portfolio_id in portfolios:
-        http_functions += f'<form action=/get_portfolio_by_id/{portfolio_id}"><input type="submit" value={{portfolio_id}} class="btn btn-primary btn-large btn-block"></form>'
+        http_functions += f'<form action=/get_portfolio_by_id/{portfolio_id}"><input type="submit" value={portfolio_id} class="btn btn-primary btn-large btn-block" style="display: inline-block;"></form>'
 
     return render_template('portfolio.html', http_functions=http_functions)
 
