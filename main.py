@@ -21,9 +21,9 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return f'Hello {session.get("username")} <hr size="8" width="90%" color="black">' \
-               '<a href="/get_portfolio_list"><p style="text-align:center">get_portfolio_list</a> <hr size="8" width="90%" color="black">' \
-               '<a href="/logout"><p style="text-align:center">Logout</a> <hr size="8" width="90%" color="black">'
+        return f'<link rel="stylesheet" href="/static/style.css" type="text/css"> <h1 align="center">Welcome back {session.get("username")}! </h1> <hr size="8" width="90%" color="black">' \
+               '<form action="/get_portfolio_list" class="logout"><input type="submit" value="View Portfolios" class="btn btn-primary btn-large btn-block"></form> <hr size="8" width="90%" color="black">' \
+               '<form action="/logout" class="logout"><input type="submit" value="Log Out" class="btn btn-primary btn-large btn-block"></form> <hr size="8" width="90%" color="black">'
 
 
 @app.route('/login', methods=['POST'])
