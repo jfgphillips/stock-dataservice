@@ -3,7 +3,8 @@ import yfinance as yf
 from pandas import DataFrame
 from typing import Union
 import plotly.express as px
-from flask import render_template
+import dash_core_components as dcc
+import dash_html_components as html
 
 
 
@@ -35,5 +36,4 @@ def calculate_portfolio(data: DataFrame):
             data.loc[index, "net_gain"] = get_net_gain(return_data, units=stock["purchase_units"])
             data.loc[index, "current_date"] = date_today
     pie_chart = generate_pie_chart(data, "current_price")
-    pie_chart.write_html("templates/current_price.html")
-    return render_template('templates/current_price.html')
+    return html.Div([dcc.Graph(figure=pie_chart)])
