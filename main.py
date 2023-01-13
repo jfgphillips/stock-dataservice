@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, session, flash
 import pandas as pd
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(12)
 
 
 def get_user_datastore() -> dict:
@@ -21,9 +22,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return f'<link rel="stylesheet" href="/static/style.css" type="text/css"> <h1 align="center">Welcome back {session.get("username")}! </h1> <hr size="8" width="90%" color="black">' \
-               '<form action="/get_portfolio_list" class="logout"><input type="submit" value="View Portfolios" class="btn btn-primary btn-large btn-block"></form> <hr size="8" width="90%" color="black">' \
-               '<form action="/logout" class="logout"><input type="submit" value="Log Out" class="btn btn-primary btn-large btn-block"></form> <hr size="8" width="90%" color="black">'
+        return render_template('index.html')
 
 
 @app.route('/login', methods=['POST'])
@@ -69,5 +68,5 @@ def get_portfolio_list() -> str:
 
 
 if __name__ == "__main__":
-    app.config["SECRET_KEY"] = os.random(12)
+    app.config["SECRET_KEY"] = os.urandom(12)
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
