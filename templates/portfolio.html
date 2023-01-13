@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="/static/style.css" type="text/css">
 
 <h1 align="center">Portfolios</h1>
-{{http_functions}}
+{{http_functions | safe}}
+
+<form action="/" class="logout">
+    <input type="submit" value="Home" class="btn btn-primary btn-large btn-block">
+</form>
