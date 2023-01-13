@@ -69,5 +69,5 @@ def get_portfolio_list() -> str:
 
 
 if __name__ == "__main__":
-    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+    app.config["SECRET_KEY"] = os.random(12)
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
