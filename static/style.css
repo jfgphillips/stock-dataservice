@@ -77,3 +77,12 @@ color: #444;
 display: block;
 margin-top: 12px;
 }
+
+h1 {
+font-family: arial;
+font-size: 2rem;
+}
+
+logout {
+margin-top: 5rem;
+}
