@@ -1,4 +1,4 @@
-user_id,username,email,password
-0,jphillips,jphillips@example.com,admin
-1,aphillips,aphillips@example.com,admin
-2,jsparrow,jsparrow@example.com,admin
+user_id,username,email,password,name
+0,jphillips,jphillips@example.com,admin,John
+1,aphillips,aphillips@example.com,admin,Adrian
+2,jsparrow,jsparrow@example.com,admin,Jack

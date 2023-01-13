@@ -22,7 +22,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return render_template('index.html', username=session.get("username"))
+        return render_template('index.html', name=session.get("name"))
 
 
 @app.route('/login', methods=['POST'])
@@ -36,6 +36,7 @@ def do_login():
             session['logged_in'] = True
             session["user_id"] = user_id
             session["username"] = username
+            session["name"] = metadata["name"]
             session["email"] = metadata["email"]
         else:
             flash('wrong password!')
@@ -64,7 +65,7 @@ def get_portfolio_list() -> str:
         http_functions += f'<a href="/get_portfolio_by_id/{portfolio_id}">portfolio_{portfolio_id}</a>'
     http_functions += '<a href="/">Home</a>'
 
-    return http_functions
+    return render_template('portfolio.html', http_functions=session.get("http_functions"))
 
 
 if __name__ == "__main__":
