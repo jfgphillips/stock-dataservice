@@ -65,7 +65,7 @@ def get_portfolio_list() -> str:
         http_functions += f'<a href="/get_portfolio_by_id/{portfolio_id}">portfolio_{portfolio_id}</a>'
     http_functions += '<a href="/">Home</a>'
 
-    return render_template('portfolio.html', http_functions=session.get("http_functions"))
+    return render_template('portfolio.html', http_functions=http_functions)
 
 
 if __name__ == "__main__":
