@@ -22,7 +22,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return render_template('index.html', username=username)
+        return render_template('index.html', username=session.get("username"))
 
 
 @app.route('/login', methods=['POST'])
