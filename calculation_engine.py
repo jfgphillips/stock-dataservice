@@ -36,5 +36,4 @@ def calculate_portfolio(data: DataFrame):
             data.loc[index, "current_date"] = date_today
     filepath = "images/pie_chart.png"
     pie_chart = generate_pie_chart(data, "current_price")
-    pie_chart.write_image(filepath)
-    return render_template(f'<h1>Portfolio</h1><img src={filepath}>')
+    return pie_chart.show()
